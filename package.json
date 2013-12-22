@@ -9,7 +9,9 @@
   },
   "homepage": "https://github.com/tandrewnichols/pedestrian",
   "scripts": {
-    "test": "mocha test --compilers coffee:coffee-script"
+    "test": "mocha test",
+    "watch": "mocha test --watch",
+    "bail": "mocha test --bail"
   },
   "dependencies": {
     "underscore": "*",
