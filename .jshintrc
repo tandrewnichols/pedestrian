@@ -1,0 +1,15 @@
+{
+  "force": false,
+  "curly": true,
+  "eqeqeq": true,
+  "newcap": true,
+  "noarg": true,
+  "sub": true,
+  "undef": true,
+  "boss": true,
+  "eqnull": true,
+  "node": true,
+  "indent": 2,
+  "quotmark": true,
+  "unused": true
+}

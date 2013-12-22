@@ -22,7 +22,8 @@
     "mocha": "*",
     "should": "*",
     "sandboxed-module": "*",
-    "sinon": "*"
+    "sinon": "*",
+    "mocha-jshint": "*"
   },
   "keywords": ["walker", "file", "recursive"],
   "main": "./lib/pedestrian"
