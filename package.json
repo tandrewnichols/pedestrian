@@ -14,6 +14,7 @@
     "bail": "mocha test --bail"
   },
   "dependencies": {
+    "varity": "*",
     "underscore": "*",
     "config-extend": "*"
   },
