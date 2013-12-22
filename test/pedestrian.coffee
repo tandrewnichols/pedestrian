@@ -3,9 +3,11 @@ Pedestrian = require "./../lib/pedestrian"
 global.context = global.describe
 
 describe "pedestrian", ->
+
   describe "~ require", ->
     beforeEach ->
       @pedestrian = new Pedestrian()
+
     it "should return an instance of Pedestrian", ->
       @pedestrian.should.be.an.instanceOf Pedestrian
       @pedestrian.should.have.property('walk').and.obj.should.be.a.Function
@@ -13,13 +15,13 @@ describe "pedestrian", ->
 
     context "with no global options", ->
       it "should have the default options", ->
-        pedestrian._options.should.eql
+        @pedestrian._options.should.eql
           async: true
 
     context "with global optoins", ->
       it "should have custom options", ->
-        pedestrian = new Pedestrian async: false
-        pedestrian._options.should.eql
+        @pedestrian = new Pedestrian async: false
+        @pedestrian._options.should.eql
           async: false
 
   describe "#walk", ->
