@@ -19,7 +19,8 @@
     "coffee-script": "*",
     "mocha": "*",
     "should": "*",
-    "sandboxed-module": "*"
+    "sandboxed-module": "*",
+    "sinon": "*"
   },
   "keywords": ["walker", "file", "recursive"],
   "main": "./lib/pedestrian"

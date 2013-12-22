@@ -4,11 +4,12 @@ global.context = global.describe
 
 describe "pedestrian", ->
   describe "~ require", ->
-    pedestrian = new Pedestrian()
+    beforeEach ->
+      @pedestrian = new Pedestrian()
     it "should return an instance of Pedestrian", ->
-      pedestrian.should.be.an.instanceOf Pedestrian
-      pedestrian.should.have.property('walk').and.obj.should.be.a.Function
-      pedestrian.should.have.property('emit').and.obj.should.be.a.Function
+      @pedestrian.should.be.an.instanceOf Pedestrian
+      @pedestrian.should.have.property('walk').and.obj.should.be.a.Function
+      @pedestrian.should.have.property('emit').and.obj.should.be.a.Function
 
     context "with no global options", ->
       it "should have the default options", ->
