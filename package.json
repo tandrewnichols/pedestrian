@@ -1,8 +1,8 @@
 {
-  "name": "pedestrian",
+  "name": "Pedestrian",
   "description": "Configurable, recursive directory walker for node",
   "version": "0.0.1",
-  "author": "Andrew Nichols <anichols@manta.com>",
+  "author": "Andrew Nichols <tandrewnichols@gmail.com>",
   "repository": {
     "type": "git",
     "url": "git://github.com/tandrewnichols/pedestrian.git"
@@ -10,22 +10,27 @@
   "homepage": "https://github.com/tandrewnichols/pedestrian",
   "scripts": {
     "test": "mocha test",
-    "watch": "mocha test --watch",
-    "bail": "mocha test --bail"
+    "watch": "mocha test -w -R min --suppress-stack"
   },
   "dependencies": {
-    "varity": "*",
-    "underscore": "*",
-    "config-extend": "*"
+    "varity": "0.0.2",
+    "underscore": "1.5.2",
+    "config-extend": "0.0.6",
+    "minimatch": "0.2.14",
+    "kindly": "0.0.2"
   },
   "devDependencies": {
-    "coffee-script": "*",
-    "mocha": "*",
-    "should": "*",
-    "sandboxed-module": "*",
-    "sinon": "*",
-    "mocha-jshint": "*"
+    "coffee-script": "1.6.3",
+    "mocha": "git://github.com/tandrewnichols/mocha.git#suppress-stack",
+    "sandboxed-module": "0.3.0",
+    "sinon": "1.7.3",
+    "mocha-given": "0.0.18",
+    "expect.js": "~0.2.0"
   },
-  "keywords": ["walker", "file", "recursive"],
+  "keywords": [
+    "walker",
+    "file",
+    "recursive"
+  ],
   "main": "./lib/pedestrian"
 }
