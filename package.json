@@ -13,7 +13,7 @@
     "watch": "mocha test -w -R min --suppress-stack"
   },
   "dependencies": {
-    "varity": "0.0.2",
+    "varity": "1.0.0",
     "underscore": "1.5.2",
     "config-extend": "0.0.6",
     "minimatch": "0.2.14",
