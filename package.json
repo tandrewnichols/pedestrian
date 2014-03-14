@@ -1,5 +1,5 @@
 {
-  "name": "Pedestrian",
+  "name": "pedestrian",
   "description": "Configurable, recursive directory walker for node",
   "version": "0.0.1",
   "author": "Andrew Nichols <tandrewnichols@gmail.com>",
