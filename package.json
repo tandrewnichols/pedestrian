@@ -1,7 +1,7 @@
 {
   "name": "pedestrian",
-  "description": "Configurable, recursive directory walker for node",
-  "version": "0.0.1",
+  "description": "Recursive directory walker for node",
+  "version": "0.0.2",
   "author": "Andrew Nichols <tandrewnichols@gmail.com>",
   "repository": {
     "type": "git",
