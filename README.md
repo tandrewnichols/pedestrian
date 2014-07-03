@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/tandrewnichols/pedestrian.png)](https://travis-ci.org/tandrewnichols/pedestrian)
+[![Build Status](https://travis-ci.org/mantacode/pedestrian.png)](https://travis-ci.org/mantacode/pedestrian)
 
 # Pedestrian
 
