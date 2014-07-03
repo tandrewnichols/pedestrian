@@ -1,6 +1,6 @@
 describe "pedestrian", ->
   Given -> @kindly = spyObj('get')
-  Given -> @subject = sandbox "lib/pedestrian",
+  Given -> @subject = sandbox "../lib/pedestrian",
     "kindly": @kindly
 
   describe ".walk", ->

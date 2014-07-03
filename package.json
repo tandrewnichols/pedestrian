@@ -2,31 +2,41 @@
   "name": "pedestrian",
   "description": "Recursive directory walker for node",
   "version": "0.0.2",
-  "author": "Andrew Nichols <tandrewnichols@gmail.com>",
+  "author": {
+    "name": "mantacode",
+    "email": "code@manta.com",
+    "url": "www.manta.com"
+  },
+  "contributors": [
+    {
+      "name": "Andrew Nichols",
+      "email": "tandrewnichols@gmail.com"
+    }
+  ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/tandrewnichols/pedestrian.git"
+    "url": "git://github.com/mantacode/pedestrian.git"
   },
-  "homepage": "https://github.com/tandrewnichols/pedestrian",
+  "homepage": "https://github.com/mantacode/pedestrian",
   "scripts": {
     "test": "mocha test",
     "watch": "mocha test -w -R min --suppress-stack"
   },
   "dependencies": {
-    "varity": "1.0.1",
-    "underscore": "1.5.2",
-    "config-extend": "0.0.6",
-    "minimatch": "0.2.14",
-    "kindly": "0.0.2",
-    "async": "0.2.10"
+    "varity": "~1.0.1",
+    "underscore": "~1.6.0",
+    "config-extend": "~0.0.6",
+    "minimatch": "~0.2.14",
+    "kindly": "~0.0.3",
+    "async": "~0.2.10"
   },
   "devDependencies": {
-    "coffee-script": "1.7.1",
+    "coffee-script": "~1.7.1",
+    "mocha-given": "~0.0.18",
+    "indeed": "~1.0.6",
+    "proxyquire": "~1.0.1",
     "mocha": "git://github.com/tandrewnichols/mocha.git#suppress-stack",
-    "sandboxed-module": "0.3.0",
-    "sinon": "1.7.3",
-    "mocha-given": "0.0.18",
-    "indeed": "1.0.5"
+    "sinon": "~1.10.2"
   },
   "keywords": [
     "walker",
