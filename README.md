@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/mantacode/pedestrian.png)](https://travis-ci.org/mantacode/pedestrian)
+[![Build Status](https://travis-ci.org/mantacode/pedestrian.png)](https://travis-ci.org/mantacode/pedestrian) [![downloads](http://img.shields.io/npm/dm/pedestrian.svg)](https://npmjs.org/package/pedestrian) [![npm](http://img.shields.io/npm/v/pedestrian.svg)](https://npmjs.org/package/pedestrian)
 
 # Pedestrian
 
