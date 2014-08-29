@@ -1,7 +1,9 @@
 describe "pedestrian", ->
-  Given -> @kindly = spyObj('get')
+  Given -> @kindly = spyObj 'get'
+  Given -> @callerId = spyObj 'getData'
   Given -> @subject = sandbox "../lib/pedestrian",
-    "kindly": @kindly
+    kindly: @kindly
+    'caller-id': @callerId
 
   describe ".walk", ->
     context 'sync', ->
@@ -46,6 +48,18 @@ describe "pedestrian", ->
         When -> @result = @subject.walk('/dir', [])
         Then -> expect(@result).to.deep.equal [ '/dir/foo.css', '/dir/foo.js', '/dir/bar/baz.css', '/dir/bar/baz.js' ]
 
+      context 'relative path', ->
+        Given -> @callerId.getData.returns
+          filePath: '/dir/hah/blah.js'
+        Given -> @kindly.get.withArgs('/dir/lib').returns
+          files: ['/dir/lib/foo.css', '/dir/lib/foo.js']
+          directories: ['/dir/lib/bar']
+        Given -> @kindly.get.withArgs('/dir/lib/bar').returns
+          files: ['/dir/lib/bar/baz.css', '/dir/lib/bar/baz.js']
+          directories: []
+        When -> @result = @subject.walk '../lib'
+        Then -> expect(@result).to.deep.equal [ '/dir/lib/foo.css', '/dir/lib/foo.js', '/dir/lib/bar/baz.css', '/dir/lib/bar/baz.js' ]
+
     context 'async', ->
       Given -> @cb = sinon.spy()
       context 'no filter', ->
@@ -65,7 +79,7 @@ describe "pedestrian", ->
         Given -> @kindly.get.withArgs('/dir/bar').callsArgWith 1, null,
           files: ['/dir/bar/baz.css', '/dir/bar/baz.js']
           directories: []
-        When -> @result = @subject.walk('/dir', '**/*.js', @cb)
+        When -> @subject.walk('/dir', '**/*.js', @cb)
         Then -> expect(@cb).to.have.been.calledWith null, [ '/dir/foo.js', '/dir/bar/baz.js' ]
 
       context 'with several filters', ->
@@ -76,7 +90,7 @@ describe "pedestrian", ->
           files: ['/dir/bar/baz.css', '/dir/bar/baz.js']
           directories: []
         Given -> @filters = [ '**/*.js', '**/*.coffee' ]
-        When -> @result = @subject.walk('/dir', @filters, @cb)
+        When -> @subject.walk('/dir', @filters, @cb)
         Then -> expect(@cb).to.have.been.calledWith null, [ '/dir/foo.js', '/dir/bar/baz.js', '/dir/baz.coffee' ]
 
       context 'with an empty array of filters', ->
@@ -86,5 +100,17 @@ describe "pedestrian", ->
         Given -> @kindly.get.withArgs('/dir/bar').callsArgWith 1, null,
           files: ['/dir/bar/baz.css', '/dir/bar/baz.js']
           directories: []
-        When -> @result = @subject.walk('/dir', [], @cb)
+        When -> @subject.walk('/dir', [], @cb)
         Then -> expect(@cb).to.have.been.calledWith null, [ '/dir/foo.css', '/dir/foo.js', '/dir/bar/baz.css', '/dir/bar/baz.js' ]
+
+      context 'relative path', ->
+        Given -> @callerId.getData.returns
+          filePath: '/dir/hah/blah.js'
+        Given -> @kindly.get.withArgs('/dir/lib').callsArgWith 1, null,
+          files: ['/dir/lib/foo.css', '/dir/lib/foo.js']
+          directories: ['/dir/lib/bar']
+        Given -> @kindly.get.withArgs('/dir/lib/bar').callsArgWith 1, null,
+          files: ['/dir/lib/bar/baz.css', '/dir/lib/bar/baz.js']
+          directories: []
+        When -> @subject.walk '../lib', @cb
+        Then -> expect(@cb).to.have.been.calledWith null, [ '/dir/lib/foo.css', '/dir/lib/foo.js', '/dir/lib/bar/baz.css', '/dir/lib/bar/baz.js' ]
