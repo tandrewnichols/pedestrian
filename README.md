@@ -26,6 +26,8 @@ pedestrian.walk(path.resolve('lib'), function(err, files) {
 });
 ```
 
+Both the sync and async versions will also work (as of v0.0.5) with relatives paths. The files that it gives back will still be absolute paths, however.
+
 ### Filtering
 
 You can also filter out files by passing a globstar pattern or array of patterns (works with either sync and async).
@@ -39,7 +41,3 @@ pedestrian.walk(path.resolve('routes'), ['**/*.js', '!badFile.js'], function (er
 ```
 
 See [minimatch](https://github.com/isaacs/minimatch) for more on the kinds of patterns you can use.
-
-### Note
-
-You don't have to use `path.resolve` on the paths you pass, but I recommend it because all files are prefixed with the path, so that will give you a fully qualified path that you can use from anywhere.
