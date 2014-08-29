@@ -24,13 +24,12 @@
     "publish": "if echo $USERNAME | grep -cq 'anichols'; then publisher run; fi"
   },
   "dependencies": {
-    "async": "~0.2.10",
+    "async": "^0.9.0",
     "caller-id": "^0.1.0",
-    "config-extend": "~0.0.6",
-    "kindly": "~0.0.3",
-    "minimatch": "~0.2.14",
-    "underscore": "~1.6.0",
-    "varity": "~1.0.1"
+    "kindly": "0.0.7",
+    "lodash": "^2.4.1",
+    "minimatch": "^1.0.0",
+    "varity": "^1.0.1"
   },
   "devDependencies": {
     "coffee-script": "~1.7.1",

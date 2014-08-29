@@ -1,4 +1,6 @@
-[![Build Status](https://travis-ci.org/mantacode/pedestrian.png)](https://travis-ci.org/mantacode/pedestrian) [![downloads](http://img.shields.io/npm/dm/pedestrian.svg)](https://npmjs.org/package/pedestrian) [![npm](http://img.shields.io/npm/v/pedestrian.svg)](https://npmjs.org/package/pedestrian)
+[![Build Status](https://travis-ci.org/mantacode/pedestrian.png)](https://travis-ci.org/mantacode/pedestrian) [![downloads](http://img.shields.io/npm/dm/pedestrian.svg)](https://npmjs.org/package/pedestrian) [![npm](http://img.shields.io/npm/v/pedestrian.svg)](https://npmjs.org/package/pedestrian) [![Code Climate](https://codeclimate.com/github/mantacode/pedestrian/badges/gpa.svg)](https://codeclimate.com/github/mantacode/pedestrian) [![Test Coverage](https://codeclimate.com/github/mantacode/pedestrian/badges/coverage.svg)](https://codeclimate.com/github/mantacode/pedestrian) [![dependencies](https://david-dm.org/mantacode/pedestrian.png)](https://david-dm.org/mantacode/pedestrian)
+
+[![NPM info](https://nodei.co/npm/pedestrian.png?downloads=true)](https://nodei.co/npm/pedestrian.png?downloads=true)
 
 # Pedestrian
 
