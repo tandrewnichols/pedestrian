@@ -1,7 +1,7 @@
 {
   "name": "pedestrian",
   "description": "Recursive directory walker for node",
-  "version": "0.0.4",
+  "version": "0.0.3",
   "author": {
     "name": "mantacode",
     "email": "code@manta.com",
@@ -10,7 +10,7 @@
   "contributors": [
     {
       "name": "Andrew Nichols",
-      "email": "anichols@manta.com"
+      "email": "tandrewnichols@gmail.com"
     }
   ],
   "repository": {
@@ -19,8 +19,8 @@
   },
   "homepage": "https://github.com/mantacode/pedestrian",
   "scripts": {
-    "test": "mocha test",
-    "watch": "mocha test -w -R min --suppress-stack"
+    "test": "grunt",
+    "publish": "if echo $USERNAME | grep -cq 'anichols'; then publisher run; fi"
   },
   "dependencies": {
     "varity": "~1.0.1",
@@ -32,10 +32,17 @@
   },
   "devDependencies": {
     "coffee-script": "~1.7.1",
-    "mocha-given": "~0.0.18",
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-mocha-cov": "^0.3.0",
+    "grunt-mocha-test": "^0.11.0",
+    "grunt-travis-matrix": "0.0.2",
     "indeed": "~1.0.6",
-    "proxyquire": "~1.0.1",
+    "jshint-stylish": "^0.4.0",
     "mocha": "git://github.com/tandrewnichols/mocha.git#suppress-stack",
+    "mocha-given": "git://github.com/tandrewnichols/mocha-given.git",
+    "mocha-lcov-reporter": "0.0.1",
+    "proxyquire": "~1.0.1",
     "sinon": "~1.10.2"
   },
   "keywords": [
@@ -43,5 +50,12 @@
     "file",
     "recursive"
   ],
-  "main": "./lib/pedestrian"
+  "main": "./lib/pedestrian",
+  "config": {
+    "blanket": {
+      "pattern": [
+        "pedestrian/lib"
+      ]
+    }
+  }
 }
