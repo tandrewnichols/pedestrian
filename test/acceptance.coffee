@@ -28,6 +28,12 @@ describe 'acceptance', ->
       Then -> expect.chain(@files).to.contain('bar.js').andTo.contain('baz/quux.js').test()
 
   describe 'relative path', ->
-    When -> @files = @pedestrian.walk './fixtures'
-    And -> @files = @files.map (file) -> return file.split('pedestrian/test/fixtures/')[1]
-    Then -> expect.chain(@files).to.contain('foo.js').andTo.contain('bar.js').andTo.contain('baz/quux.js').test()
+    describe 'without filters', ->
+      When -> @files = @pedestrian.walk './fixtures'
+      And -> @files = @files.map (file) -> return file.split('pedestrian/test/fixtures/')[1]
+      Then -> expect.chain(@files).to.contain('foo.js').andTo.contain('bar.js').andTo.contain('baz/quux.js').test()
+
+    describe 'with filters', ->
+      When -> @files = @pedestrian.walk './fixtures', ['*.js']
+      And -> @files = @files.map (file) -> return file.split('pedestrian/test/fixtures/')[1]
+      Then -> expect.chain(@files).to.contain('foo.js').andTo.contain('bar.js').test()
