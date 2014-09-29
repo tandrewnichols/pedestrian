@@ -38,6 +38,17 @@ describe "pedestrian", ->
         When -> @result = @subject.walk('/dir', @filters)
         Then -> expect(@result).to.deep.equal [ '/dir/foo.js', '/dir/bar/baz.js', '/dir/baz.coffee' ]
 
+      context 'with a negate filter', ->
+        Given -> @kindly.get.withArgs('/dir').returns
+          files: ['/dir/foo.css', '/dir/foo.js', '/dir/baz.coffee']
+          directories: ['/dir/bar']
+        Given -> @kindly.get.withArgs('/dir/bar').returns
+          files: ['/dir/bar/baz.css', '/dir/bar/baz.js']
+          directories: []
+        Given -> @filters = [ '**/*.js', '!**/*.coffee' ]
+        When -> @result = @subject.walk('/dir', @filters)
+        Then -> expect(@result).to.deep.equal [ '/dir/foo.js', '/dir/bar/baz.js' ]
+
       context 'with an empty array of filters', ->
         Given -> @kindly.get.withArgs('/dir').returns
           files: ['/dir/foo.css', '/dir/foo.js']

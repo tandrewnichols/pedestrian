@@ -27,6 +27,11 @@ describe 'acceptance', ->
       And -> @files = @files.map (file) -> return file.split('pedestrian/test/fixtures/')[1]
       Then -> expect.chain(@files).to.contain('bar.js').andTo.contain('baz/quux.js').test()
 
+    describe 'complicated patterns', ->
+      When (done) -> @pedestrian.walk __dirname + '/fixtures', ['**/*.js', '**/*.coffee', '!foo.js'], (err, @files) => done()
+      And -> @files = @files.map (file) -> return file.split('pedestrian/test/fixtures/')[1]
+      Then -> expect.chain(@files).to.contain('bar.js').andTo.contain('baz/quux.js').andTo.contain('baz/quux.coffee').andTo.contain('foo.coffee').test()
+
   describe 'relative path', ->
     describe 'without filters', ->
       When -> @files = @pedestrian.walk './fixtures'
