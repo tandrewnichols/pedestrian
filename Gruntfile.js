@@ -65,4 +65,5 @@ module.exports = function(grunt) {
   grunt.registerTask('default', ['jshint:all', 'mocha']);
   grunt.registerTask('coverage', ['mochacov:html']);
   grunt.registerTask('ci', ['jshint:all', 'mocha', 'travis']);
+
 };
