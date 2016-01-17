@@ -51,13 +51,13 @@ module.exports = function(grunt) {
       options: {
         targets: {
           test: '{{ version }}',
-          when: 'v0.10',
-          tasks: ['mochacov:lcov', 'matrix:v0.10']
+          when: 'v4.2',
+          tasks: ['mochacov:lcov', 'matrix:v4.2']
         }
       }
     },
     matrix: {
-      'v0.10': 'codeclimate < coverage/coverage.lcov'
+      'v4.2': 'codeclimate-test-reporter < coverage/coverage.lcov'
     }
   });
 
