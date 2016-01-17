@@ -1,7 +1,7 @@
 {
   "name": "pedestrian",
   "description": "Recursive directory walker for node",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "author": {
     "name": "Andrew Nichols",
     "email": "tandrewnichols@gmail.com",
