@@ -25,7 +25,7 @@ module.exports = function(grunt) {
           require: 'coffee-script/register',
           output: 'coverage/coverage.lcov'
         },
-        src: ['test/helpers.coffee', 'test/**/*.coffee', '!test/acceptance.coffee'],
+        src: ['test/helpers.coffee', 'test/**/*.coffee', '!test/acceptance.coffee']
       },
       html: {
         options: {
