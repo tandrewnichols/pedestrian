@@ -3,6 +3,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-mocha-test');
   grunt.loadNpmTasks('grunt-mocha-cov');
   grunt.loadNpmTasks('grunt-travis-matrix');
+  grunt.loadNpmTasks('grunt-shell');
 
   grunt.initConfig({
     jshint: {
@@ -47,23 +48,21 @@ module.exports = function(grunt) {
         src: ['test/helpers.coffee', 'test/**/*.coffee']
       }
     },
-    travis: {
-      options: {
-        targets: {
-          test: '{{ version }}',
-          when: 'v4.2',
-          tasks: ['mochacov:lcov', 'matrix:v4.2']
-        }
+    travisMatrix: {
+      v4: {
+        test: function() {
+          return /^v4/.test(process.version);
+        },
+        tasks: ['mochacov:lcov', 'shell:codeclimate']
       }
     },
-    matrix: {
-      'v4.2': 'codeclimate-test-reporter < coverage/coverage.lcov'
+    shell: {
+      codeclimate: 'codeclimate-test-reporter < coverage/coverage.lcov'
     }
   });
 
   grunt.registerTask('mocha', ['mochaTest:test']);
   grunt.registerTask('default', ['jshint:all', 'mocha']);
   grunt.registerTask('coverage', ['mochacov:html']);
-  grunt.registerTask('ci', ['jshint:all', 'mocha', 'travis']);
-
+  grunt.registerTask('ci', ['jshint:all', 'mocha', 'travisMatrix:v4']);
 };
