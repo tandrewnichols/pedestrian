@@ -7,6 +7,11 @@ describe "pedestrian", ->
 
   describe ".walk", ->
     context 'sync', ->
+      context 'with an empty dir', ->
+        Given -> @kindly.get.withArgs('/dir').returns undefined
+        When -> @result = @subject.walk('/dir')
+        Then -> expect(@result).to.deep.equal []
+
       context 'no filter', ->
         Given -> @kindly.get.withArgs("/dir").returns
           files: ["/dir/foo.txt"]
@@ -73,6 +78,12 @@ describe "pedestrian", ->
 
     context 'async', ->
       Given -> @cb = sinon.spy()
+
+      context 'an empty directory', ->
+        Given -> @kindly.get.withArgs('/dir').callsArgWith 1, null, undefined
+        When -> @subject.walk('/dir', @cb)
+        Then -> expect(@cb).to.have.been.calledWith null, []
+
       context 'no filter', ->
         Given -> @kindly.get.withArgs("/dir").callsArgWith 1, null,
           files: ["/dir/foo.txt"]
