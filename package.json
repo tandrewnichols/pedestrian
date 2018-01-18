@@ -46,5 +46,8 @@
     "directories"
   ],
   "main": "./lib/pedestrian",
-  "license": "MIT"
+  "license": "MIT",
+  "engines": {
+    "node": ">=6"
+  }
 }
