@@ -1,15 +1,17 @@
 language: node_js
-before_install:
-  - "export CODECLIMATE_REPO_TOKEN=01f6b37045572411fc50c2f3ddf7a50f673f09a026dcaf40459b93ca1ea38d6a" 
+sudo: false
+addons:
+  code_climate:
+    repo_token: "01f6b37045572411fc50c2f3ddf7a50f673f09a026dcaf40459b93ca1ea38d6a"
 install:
-  - "npm install grunt-cli codeclimate-test-reporter -g"
   - "npm install"
 script:
-  - "grunt ci"
+  - "npm run travis"
 node_js:
-  - "4"
-  - "5"
   - "6"
+  - "7"
+  - "8"
+  - "9"
 cache:
   directories:
     - 'node_modules'
