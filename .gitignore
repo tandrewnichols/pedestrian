@@ -1,3 +1,5 @@
 node_modules
 *.sw*
+npm-debug.log
 coverage
+.nyc_output

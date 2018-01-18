@@ -13,44 +13,41 @@
   },
   "homepage": "https://github.com/tandrewnichols/pedestrian",
   "scripts": {
-    "test": "grunt"
+    "test": "gulp",
+    "travis": "gulp travis"
   },
   "dependencies": {
-    "async": "^2.0.1",
+    "async": "^2.6.0",
     "caller-id": "^0.1.0",
-    "kindly": "0.0.8",
-    "lodash": "^4.15.0",
-    "minimatch": "^3.0.3",
-    "varity": "^1.0.1"
+    "kindly": "^1.0.0",
+    "lodash": "^4.17.4",
+    "minimatch": "^3.0.4"
   },
   "devDependencies": {
-    "coffee-script": "^1.10.0",
-    "grunt": "^1.0.1",
-    "grunt-contrib-jshint": "^1.0.0",
-    "grunt-mocha-cov": "^0.4.0",
-    "grunt-mocha-test": "^0.12.7",
-    "grunt-shell": "^1.3.1",
-    "grunt-travis-matrix": "^1.0.0",
-    "indeed": "^1.1.0",
-    "jshint-stylish": "^2.2.1",
-    "mocha": "git://github.com/tandrewnichols/mocha.git#suppress-stack",
-    "mocha-given": "git://github.com/tandrewnichols/mocha-given.git",
-    "mocha-lcov-reporter": "^1.2.0",
-    "proxyquire": "^1.7.10",
-    "sinon": "^1.17.5"
+    "eslint-codeframe-formatter": "^1.0.2",
+    "execa": "^0.9.0",
+    "fs-extra": "^5.0.0",
+    "gulp": "^4.0.0",
+    "gulp-codeclimate-reporter": "github:tandrewnichols/gulp-codeclimate-reporter",
+    "gulp-eslint": "^4.0.1",
+    "gulp-mocha": "^5.0.0",
+    "gulp-open": "^2.1.0",
+    "mocha": "^5.0.0",
+    "nyc": "^11.4.1",
+    "should": "^13.2.1",
+    "sinon": "^4.1.6"
   },
   "keywords": [
+    "walk",
     "walker",
     "file",
-    "recursive"
+    "recursive",
+    "directory",
+    "directories"
   ],
   "main": "./lib/pedestrian",
-  "config": {
-    "blanket": {
-      "pattern": [
-        "pedestrian/lib"
-      ]
-    }
-  },
-  "license": "MIT"
+  "license": "MIT",
+  "engines": {
+    "node": ">=6"
+  }
 }
