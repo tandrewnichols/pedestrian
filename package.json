@@ -13,7 +13,8 @@
   },
   "homepage": "https://github.com/tandrewnichols/pedestrian",
   "scripts": {
-    "test": "grunt"
+    "test": "gulp",
+    "travis": "gulp travis"
   },
   "dependencies": {
     "async": "^2.6.0",
@@ -37,17 +38,13 @@
     "sinon": "^4.1.6"
   },
   "keywords": [
+    "walk",
     "walker",
     "file",
-    "recursive"
+    "recursive",
+    "directory",
+    "directories"
   ],
   "main": "./lib/pedestrian",
-  "config": {
-    "blanket": {
-      "pattern": [
-        "pedestrian/lib"
-      ]
-    }
-  },
   "license": "MIT"
 }
